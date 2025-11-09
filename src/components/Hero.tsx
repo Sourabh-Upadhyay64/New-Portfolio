@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Download } from "lucide-react";
 import { Button } from "./ui/button";
 
 export const Hero = () => {
@@ -29,7 +29,7 @@ export const Hero = () => {
           className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-card border-2 border-foreground/10 rounded-full"
         >
           <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-foreground">Currently @ Dev-Evelopers Software & Solutions</span>
+          <span className="text-sm font-medium text-foreground">Open to Work</span>
         </motion.div>
 
         {/* Main heading */}
@@ -95,6 +95,21 @@ export const Hero = () => {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Let's Talk
+          </Button>
+
+          <Button 
+            size="lg" 
+            variant="outline"
+            className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-semibold text-lg px-8 group"
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/SoftwareDeveloper.pdf.pdf';
+              link.download = 'Sourabh_Upadhyay_Resume.pdf';
+              link.click();
+            }}
+          >
+            <Download className="mr-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            Resume
           </Button>
         </motion.div>
 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 
 const projects = [
@@ -10,34 +10,37 @@ const projects = [
     tech: ["React", "Node.js", "MongoDB", "WebSockets", "Docker", "AWS"],
     gradient: "from-primary to-accent",
     emoji: "🚀",
-    githubUrl: "https://github.com/326322"
+    githubUrl: "https://github.com/Sourabh-Upadhyay64/Dev",
+    liveUrl: "https://devcircles.netlify.app/"
   },
   {
-    title: "Smart-Eat",
+    title: "Quick Serve",
     subtitle: "QR Code Ordering System",
     description: "QR-based ordering platform with separate customer, kitchen, and admin interfaces. Real-time order tracking using Node.js event emitters and WebSockets. Includes inventory management with low-stock alerts and automated menu availability.",
     tech: ["Node.js", "WebSockets", "QR", "Express.js"],
     gradient: "from-accent to-secondary",
     emoji: "🍕",
-    githubUrl: "https://github.com/326322"
+    githubUrl: "https://github.com/Sourabh-Upadhyay64/Project0",
+    liveUrl: "https://project0-2upk.vercel.app/customer"
   },
   {
-    title: "AI Resume Matcher",
+    title: "AI Resume Guide",
     subtitle: "HR Tech",
     description: "AI-powered tool analyzing resumes against job descriptions, providing match scores and generating interview questions automatically.",
     tech: ["React", "Python", "OpenAI"],
     gradient: "from-secondary to-rose",
     emoji: "📊",
-    githubUrl: "https://github.com/326322"
+    githubUrl: "https://github.com/Sourabh-Upadhyay64/Resume-Guide",
+    liveUrl: "https://resume-guide-ai.vercel.app/"
   },
   {
     title: "Crypto Engine",
-    subtitle: "Coming Soon",
+    subtitle: "Cryptocurrency Matching Engine",
     description: "High-performance cryptocurrency matching engine with order book management and real-time trade execution capabilities.",
     tech: ["TypeScript", "Redis", "WebSocket"],
     gradient: "from-rose to-primary",
     emoji: "₿",
-    comingSoon: true
+    githubUrl: "https://github.com/Sourabh-Upadhyay64/REG_Engine"
   }
 ];
 
@@ -82,13 +85,6 @@ export const Projects = () => {
               }`}>
                 {/* Background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
-                {/* Coming soon badge */}
-                {project.comingSoon && (
-                  <div className="absolute top-8 right-8 bg-foreground text-background px-4 py-2 rounded-full text-sm font-bold">
-                    Coming Soon
-                  </div>
-                )}
 
                 <div className="relative z-10 grid md:grid-cols-[1fr,2fr] gap-8 items-start">
                   {/* Left - Visual */}
@@ -127,18 +123,27 @@ export const Projects = () => {
                       {project.description}
                     </p>
 
-                    {!project.comingSoon && project.githubUrl && (
-                      <div className="flex gap-3 pt-4">
+                    <div className="flex gap-3 pt-4">
+                      {project.liveUrl && (
+                        <Button
+                          onClick={() => window.open(project.liveUrl, '_blank')}
+                          className="bg-foreground text-background hover:bg-foreground/90 font-semibold group/btn"
+                        >
+                          View Live
+                          <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                        </Button>
+                      )}
+                      {project.githubUrl && (
                         <Button
                           onClick={() => window.open(project.githubUrl, '_blank')}
                           variant="outline"
                           className="border-2 border-foreground hover:bg-foreground hover:text-background font-semibold"
                         >
                           <Github className="mr-2 w-4 h-4" />
-                          View Code
+                          Code
                         </Button>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 </div>
 

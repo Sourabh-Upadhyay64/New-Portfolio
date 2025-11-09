@@ -6,7 +6,7 @@ const achievements = [
     icon: Heart,
     title: "SDG Club Secretary",
     description: "Led campus sustainability initiatives and awareness programs",
-    year: "2023-Present"
+    year: "2025-Present"
   },
   {
     icon: Trophy,
